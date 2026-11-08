@@ -1,0 +1,23 @@
+{
+	"schemaVersion": 1,
+	"id": "abyssal",
+	"name": "Abyssal",
+	"version": "0.1.0",
+
+	"description": "A modern utility client for Aether.",
+	"authors": ["HoppouDev"],
+	"contributors": [],
+	"license": "MIT",
+	"homepage": "https://hoppou.dev",
+	"source": null,
+
+	"assembly": "Abyssal.dll",
+	"entrypoint": "Abyssal.Startup",
+	"mixins": ["Abyssal.Mixins.GodMixin"],
+
+	"depends": {
+		"aether": "@aether-version@",
+		"aether-api": "0.1.0",
+		"terraria": "@terraria-version@"
+	}
+}
