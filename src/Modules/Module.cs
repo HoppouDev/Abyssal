@@ -34,6 +34,11 @@ public abstract class Module
             OnDisable();
     }
 
+    /// <summary>
+    /// Runs after each gameplay update in a world while the module is enabled.
+    /// </summary>
+    public virtual void OnTick() { }
+
     protected virtual void OnEnable() { }
 
     protected virtual void OnDisable() { }

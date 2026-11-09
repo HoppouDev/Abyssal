@@ -1,4 +1,5 @@
 using Abyssal.Menu;
+using Abyssal.Modules;
 using Aether.Modding;
 using Aether.Api;
 
@@ -12,5 +13,14 @@ public sealed class Startup : IModInitializer
     {
         RetainedUiLayer menu = RetainedUi.Register("abyssal:menu", () => new ModMenu(), initiallyVisible: false);
         Keybinds.Register("abyssal:menu", "OemTilde", () => menu.IsVisible = !menu.IsVisible);
+
+        WorldEvents.Tick.Register(_ =>
+        {
+            foreach (var module in ModuleRegistry.All)
+            {
+                if (module.Enabled)
+                    module.OnTick();
+            }
+        });
     }
 }
