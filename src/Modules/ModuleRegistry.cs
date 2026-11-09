@@ -9,5 +9,6 @@ public static class ModuleRegistry
     [
         GodMode.Instance,
         NoClip.Instance,
+        KillAura.Instance,
     ];
 }
