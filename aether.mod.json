@@ -13,7 +13,7 @@
 
 	"assembly": "Abyssal.dll",
 	"entrypoint": "Abyssal.Startup",
-	"mixins": ["Abyssal.Mixins.GodMixin"],
+	"mixins": ["Abyssal.Mixins.GodMixin", "Abyssal.Mixins.NoClipMixin"],
 
 	"depends": {
 		"aether": "@aether-version@",

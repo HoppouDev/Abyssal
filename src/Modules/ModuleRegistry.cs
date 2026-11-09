@@ -8,5 +8,6 @@ public static class ModuleRegistry
     public static IReadOnlyList<Module> All { get; } =
     [
         GodMode.Instance,
+        NoClip.Instance,
     ];
 }
