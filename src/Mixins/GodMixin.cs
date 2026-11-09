@@ -1,3 +1,4 @@
+using Abyssal.Modules;
 using Aether.Modding;
 
 namespace Abyssal.Mixins;
@@ -11,7 +12,7 @@ public class GodMixin
     [Inject("ResetEffects()", At.RETURN)]
     private void OnResetEffects(CallbackInfo callback)
     {
-        if (GodState.Enabled)
+        if (GodMode.Instance.Enabled)
             creativeGodMode = true;
     }
 }

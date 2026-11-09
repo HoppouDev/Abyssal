@@ -1,3 +1,4 @@
+using Abyssal.Menu;
 using Aether.Modding;
 using Aether.Api;
 
@@ -9,22 +10,7 @@ public sealed class Startup : IModInitializer
 
     public void Initialize()
     {
-        Keybinds.Register("abyssal:god-mode", "OemTilde", () =>
-        {
-            if (!Players.TryGetLocal(out var player))
-            {
-                return;
-            }
-
-            GodState.Enabled = !GodState.Enabled;
-            player.creativeGodMode = GodState.Enabled;
-            Terraria.Main.NewText($"[abyssal] God mode {(GodState.Enabled ? "enabled" : "disabled")}", new Microsoft.Xna.Framework.Color(255, 215, 75));
-        });
-
-        // HudOverlays.Register("abyssal:god-mode", canvas =>
-        // {
-        //     if (GodState.Enabled)
-        //         canvas.DrawText("GOD MODE", 16, 80, HudColor.White);
-        // });
+        RetainedUiLayer menu = RetainedUi.Register("abyssal:menu", () => new ModMenu(), initiallyVisible: false);
+        Keybinds.Register("abyssal:menu", "OemTilde", () => menu.IsVisible = !menu.IsVisible);
     }
 }
