@@ -35,9 +35,14 @@ public abstract class Module
     }
 
     /// <summary>
+    /// Runs before each gameplay update in a world, ahead of players, NPCs, and projectiles, while the module is enabled.
+    /// </summary>
+    public virtual void OnTickStart() { }
+
+    /// <summary>
     /// Runs after each gameplay update in a world while the module is enabled.
     /// </summary>
-    public virtual void OnTick() { }
+    public virtual void OnTickEnd() { }
 
     protected virtual void OnEnable() { }
 

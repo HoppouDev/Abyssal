@@ -20,7 +20,7 @@ public sealed class KillAura : Module
 
     public static KillAura Instance { get; } = new();
 
-    public override void OnTick()
+    public override void OnTickEnd()
     {
         if (Main.dedServ)
             return;

@@ -14,12 +14,20 @@ public sealed class Startup : IModInitializer
         RetainedUiLayer menu = RetainedUi.Register("abyssal:menu", () => new ModMenu(), initiallyVisible: false);
         Keybinds.Register("abyssal:menu", "OemTilde", () => menu.IsVisible = !menu.IsVisible);
 
-        WorldEvents.Tick.Register(_ =>
+        WorldEvents.TickStart.Register(_ =>
         {
             foreach (var module in ModuleRegistry.All)
             {
                 if (module.Enabled)
-                    module.OnTick();
+                    module.OnTickStart();
+            }
+        });
+        WorldEvents.TickEnd.Register(_ =>
+        {
+            foreach (var module in ModuleRegistry.All)
+            {
+                if (module.Enabled)
+                    module.OnTickEnd();
             }
         });
     }
