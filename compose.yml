@@ -1,0 +1,16 @@
+# TShock test server. Attach to the console with `docker attach terraria` (detach with Ctrl+P, Ctrl+Q).
+services:
+  terraria:
+    image: ryshe/terraria:tshock-1.4.5.8-6.2.1 # Matches the client's Terraria version.
+    container_name: terraria
+    ports:
+      - "7777:7777"
+    volumes:
+      - ./server/world:/root/.local/share/Terraria/Worlds
+      - ./server/plugins:/plugins
+      - ./server/logs:/tshock/logs
+    # Creates a small world on first run, then loads it.
+    command: -autocreate 1 -world /root/.local/share/Terraria/Worlds/world.wld
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
