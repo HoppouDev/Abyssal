@@ -2,3 +2,4 @@
 /plugins/
 /world/*
 !/world/config.json
+!/world/sscconfig.json
